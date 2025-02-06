@@ -8,7 +8,7 @@
 import Foundation
 
 /// A thread-safe caching module combining secure and general-purpose caching.
-@MainActor
+//@MainActor
 public final class CacheModule {
     public let secureCache: SecureCaching
     public let dataCache: DataCaching

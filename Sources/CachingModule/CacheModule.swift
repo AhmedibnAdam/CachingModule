@@ -30,6 +30,7 @@ public final class CacheModule {
 // MARK: - Factory
 @MainActor
 public enum CacheModuleFactory {
+    @available(macOS 14, *)
     public static func make(context: ModelContext) throws -> CacheModule {
         guard context.container != nil else {
             throw CacheError.invalidData

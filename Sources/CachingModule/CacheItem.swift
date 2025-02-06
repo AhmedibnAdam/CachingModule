@@ -9,6 +9,7 @@
 import SwiftData
 import Foundation
 
+@available(macOS 14, *)
 @Model
 public final class CacheItem {
     var key: String
@@ -19,3 +20,4 @@ public final class CacheItem {
         self.value = value
     }
 }
+

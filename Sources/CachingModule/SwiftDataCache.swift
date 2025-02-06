@@ -8,7 +8,7 @@
 import SwiftData
 import Foundation
 
-@MainActor
+@available(macOS 14, *)
 public final class SwiftDataCache: DataCaching {
     private let context: ModelContext
     

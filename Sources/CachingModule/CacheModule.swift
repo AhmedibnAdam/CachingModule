@@ -1,12 +1,11 @@
 //
 //  CacheModule.swift
-//  MoviesDB
+//  CachingModule
 //
 //  Created by Ahmad on 05/02/2025.
 //
 
-
-import SwiftData
+import Foundation
 
 /// A thread-safe caching module combining secure and general-purpose caching.
 @MainActor
@@ -19,7 +18,7 @@ public final class CacheModule {
     ///   - secureCache: Secure storage implementation (default: Keychain).
     ///   - dataCache: General-purpose cache (e.g., SwiftData, UserDefaults).
     public init(
-        secureCache: SecureCaching = KeychainSecureCache(),
+        secureCache: SecureCaching,
         dataCache: DataCaching
     ) {
         self.secureCache = secureCache
@@ -27,15 +26,4 @@ public final class CacheModule {
     }
 }
 
-// MARK: - Factory
-@MainActor
-public enum CacheModuleFactory {
-    @available(macOS 14, *)
-    public static func make(context: ModelContext) throws -> CacheModule {
-        guard context.container != nil else {
-            throw CacheError.invalidData
-        }
-        return CacheModule(dataCache: SwiftDataCache(context: context))
-    }
-}
 

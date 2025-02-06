@@ -1,6 +1,6 @@
 //
 //  KeychainSecureCache.swift
-//  MoviesDB
+//  CachingModule
 //
 //  Created by Ahmad on 05/02/2025.
 //
@@ -11,7 +11,7 @@ import Security
 public final class KeychainSecureCache: SecureCaching {
     private let service: String
     
-    public init(service: String = "com.yourapp.securecache") {
+    public init(service: String /*= "com.yourapp.securecache"*/) {
         self.service = service
     }
     
